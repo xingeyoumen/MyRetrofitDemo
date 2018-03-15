@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.submit) void submit() {
         // TODO call server...
 //        textshow.setText("今天是个好天气！");
-        getBaseModelRequest();
+//        getBaseModelRequest();
+        getRequest();
     }
 
 
@@ -102,11 +103,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void getRequest() {
 
-        //步骤4:创建Retrofit对象
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL_ICIBA) // 设置 网络请求 Url
-                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
-                .build();
+//        //步骤4:创建Retrofit对象
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(Constants.BASE_URL_ICIBA) // 设置 网络请求 Url
+//                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
+//                .build();
+
+        Retrofit retrofit = MyBaseRetrofit.getBaseRetrofit();
 
         // 步骤5:创建 网络请求接口 的实例
         GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
@@ -188,11 +191,13 @@ public class MainActivity extends AppCompatActivity {
         //步骤6:发送网络请求(异步)
         call.enqueue(new MyCallback<BaseCallModel<Translation>>() {
 
-
             @Override
             public void onSuccess(Response<BaseCallModel<Translation>> response) {
                 int code = response.code();
-                System.out.println("code:" + code);
+//                System.out.println("code:" + code);
+                BaseCallModel<Translation> body = response.body();
+                String s = body.data.toString();
+                System.out.println("s:"+s);
             }
 
             @Override

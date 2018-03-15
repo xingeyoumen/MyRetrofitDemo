@@ -6,8 +6,8 @@ package com.kuaishangche.myretrofitdemo.retrofit.base;
 
 public class BaseCallModel<T> {
 
-    public int errno;
-    public String msg;
+//    public int errno;
+//    public String msg;
     public T data;
 
 }

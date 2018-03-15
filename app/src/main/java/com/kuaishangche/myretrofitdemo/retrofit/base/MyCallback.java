@@ -17,13 +17,13 @@ public abstract class MyCallback<T extends BaseCallModel> implements Callback<T>
     @Override
     public void onResponse(Call<T> call, Response<T> response) {
         if (response.raw().code() == 200) {//200是服务器有合理响应
-            if (response.body().errno == 0) {
+//            if (response.body().errno == 0) {
                 onSuccess(response);
-            } else if (response.body().errno == 1) {
-            } else if (response.body().errno == 2) {
-            } else {
-                onFail(response.body().msg);
-            }
+//            } else if (response.body().errno == 1) {
+//            } else if (response.body().errno == 2) {
+//            } else {
+//                onFail(response.body().msg);
+//            }
         } else {//失败响应
             onFailure(call, new RuntimeException("response error,detail = " + response.raw().toString()));
         }

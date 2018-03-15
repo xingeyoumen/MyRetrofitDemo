@@ -12,9 +12,10 @@ import retrofit2.http.GET;
 
 public interface GetRequest_Interface {
 
-    @GET("ajax.php?a=fy&f=auto&t=auto&w=hello%20world")
+    @GET("ajax.php?w=hello%20world")
     Call<Translation> getCall();
-    @GET("ajax.php?a=fy&f=auto&t=auto&w=hello%20world")
+
+    @GET("ajax.php?w=hello%20world")
     Call<BaseCallModel<Translation>> getCallModel();
     @GET("ajax.php?a=fy&f=auto&t=auto&w=hello%20world")
     Call<ResponseBody> getCalls();
