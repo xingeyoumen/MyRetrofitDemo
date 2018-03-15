@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.submit) void submit() {
         // TODO call server...
-//        textshow.setText("今天是个好天气！");
-        getBaseModelRequest();
+        textshow.setText("今天是个好天气！");
+//        getBaseModelRequest();
     }
 
 
